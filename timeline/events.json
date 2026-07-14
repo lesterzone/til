@@ -18,5 +18,80 @@
     "date": "2026-04-20",
     "title": "Bought RAV4",
     "description": "License plate GYR123."
+  },
+  {
+    "date": "2024-01-17",
+    "title": "Trip to Granada, Nicaragua",
+    "description": "Stayed Jan 17–18, 2024."
+  },
+  {
+    "date": "2024-01-19",
+    "title": "Trip to León, Nicaragua",
+    "description": "Stayed Jan 19–20, 2024."
+  },
+  {
+    "date": "2024-01-20",
+    "title": "Trip to Granada, Nicaragua",
+    "description": "Stayed Jan 20–21, 2024."
+  },
+  {
+    "date": "2024-04-12",
+    "title": "Trip to Guatemala City, Guatemala",
+    "description": "Stayed Apr 12–15, 2024."
+  },
+  {
+    "date": "2024-04-29",
+    "title": "Trip to Managua, Nicaragua",
+    "description": "Stayed Apr 29–30, 2024."
+  },
+  {
+    "date": "2024-09-16",
+    "title": "Trip to Guatemala City, Guatemala",
+    "description": "Stayed Sep 16–21, 2024."
+  },
+  {
+    "date": "2025-01-08",
+    "title": "Trip to Quito, Ecuador",
+    "description": "Stayed Jan 8–19, 2025."
+  },
+  {
+    "date": "2025-02-14",
+    "title": "Trip to Antigua Guatemala, Guatemala",
+    "description": "Stayed Feb 14–15, 2025."
+  },
+  {
+    "date": "2025-02-16",
+    "title": "Trip to Guatemala City, Guatemala",
+    "description": "Stayed Feb 16–17, 2025."
+  },
+  {
+    "date": "2025-03-02",
+    "title": "Trip to Managua, Nicaragua",
+    "description": "Stayed Mar 2–3, 2025."
+  },
+  {
+    "date": "2025-12-19",
+    "title": "Trip to Matagalpa, Nicaragua",
+    "description": "Stayed Dec 19–20, 2025."
+  },
+  {
+    "date": "2025-12-20",
+    "title": "Trip to Granada, Nicaragua",
+    "description": "Stayed Dec 20–21, 2025."
+  },
+  {
+    "date": "2026-01-09",
+    "title": "Trip to Medellín, Colombia",
+    "description": "Stayed Jan 9–16, 2026."
+  },
+  {
+    "date": "2026-01-16",
+    "title": "Trip to Medellín, Colombia",
+    "description": "Stayed Jan 16–23, 2026."
+  },
+  {
+    "date": "2026-02-13",
+    "title": "Trip to Bogotá, Colombia",
+    "description": "Stayed Feb 13–16, 2026."
   }
 ]
