@@ -14,6 +14,14 @@
     --dot: #b5895a;
     --card-bg: #ffffff;
     --card-border: #e6e3da;
+    --cat-hiking: #4f7d5c;
+    --cat-hiking-bg: rgba(79, 125, 92, 0.14);
+    --cat-cycling: #b5673e;
+    --cat-cycling-bg: rgba(181, 103, 62, 0.14);
+    --cat-vacation: #3f6a8a;
+    --cat-vacation-bg: rgba(63, 106, 138, 0.14);
+    --cat-other: var(--muted);
+    --cat-other-bg: rgba(107, 107, 102, 0.14);
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -24,6 +32,13 @@
       --dot: #d3a06f;
       --card-bg: #242220;
       --card-border: #35332c;
+      --cat-hiking: #8fbf9c;
+      --cat-hiking-bg: rgba(143, 191, 156, 0.18);
+      --cat-cycling: #e0996b;
+      --cat-cycling-bg: rgba(224, 153, 107, 0.18);
+      --cat-vacation: #8ec2e8;
+      --cat-vacation-bg: rgba(142, 194, 232, 0.18);
+      --cat-other-bg: rgba(154, 151, 144, 0.18);
     }
   }
   * { box-sizing: border-box; }
@@ -66,6 +81,74 @@
     outline: 2px solid var(--dot);
     outline-offset: 1px;
   }
+  .category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .category-chip {
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    color: var(--muted);
+    opacity: 0.55;
+  }
+  .category-chip.active {
+    opacity: 1;
+    border-color: currentColor;
+  }
+  .category-chip[data-category="hiking"].active {
+    color: var(--cat-hiking);
+    background: var(--cat-hiking-bg);
+  }
+  .category-chip[data-category="cycling"].active {
+    color: var(--cat-cycling);
+    background: var(--cat-cycling-bg);
+  }
+  .category-chip[data-category="vacation"].active {
+    color: var(--cat-vacation);
+    background: var(--cat-vacation-bg);
+  }
+  .category-chip[data-category="all"].active {
+    color: var(--fg);
+    background: var(--card-bg);
+    border-color: var(--fg);
+  }
+  .category-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.08rem 0.5rem;
+    border-radius: 999px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    color: var(--cat-other);
+    background: var(--cat-other-bg);
+  }
+  .category-badge[data-category="hiking"] {
+    color: var(--cat-hiking);
+    background: var(--cat-hiking-bg);
+  }
+  .category-badge[data-category="cycling"] {
+    color: var(--cat-cycling);
+    background: var(--cat-cycling-bg);
+  }
+  .category-badge[data-category="vacation"] {
+    color: var(--cat-vacation);
+    background: var(--cat-vacation-bg);
+  }
+  .sub-entry .category-badge {
+    font-size: 0.62rem;
+    padding: 0.05rem 0.4rem;
+  }
   .year-heading {
     font-size: 0.85rem;
     font-weight: 700;
@@ -84,14 +167,25 @@
   }
   .entry {
     position: relative;
-    padding: 0 0 1.5rem 1.5rem;
+    padding: 0 0 1.5rem 1.75rem;
     margin-left: -2px;
   }
-  .entry::before {
-    content: "";
+  .entry-dot {
     position: absolute;
-    left: -7px;
-    top: 0.35rem;
+    left: -0.95rem;
+    top: -0.05rem;
+    width: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    text-align: center;
+    background: var(--bg);
+  }
+  .entry-dot.plain {
+    font-size: 0;
+  }
+  .entry-dot.plain::before {
+    content: "";
+    display: inline-block;
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -113,6 +207,45 @@
     color: var(--fg);
     font-size: 0.95rem;
     white-space: pre-wrap;
+  }
+  ol.sub-timeline {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    border-left: 2px solid var(--line);
+  }
+  .sub-entry {
+    position: relative;
+    padding: 0 0 0.9rem 1.4rem;
+    margin-left: -1px;
+  }
+  .sub-entry:last-child {
+    padding-bottom: 0;
+  }
+  .sub-entry .entry-dot {
+    left: -0.8rem;
+    top: -0.05rem;
+    width: 1.2rem;
+    font-size: 0.85rem;
+  }
+  .sub-entry .entry-dot.plain::before {
+    width: 8px;
+    height: 8px;
+    background: var(--muted);
+  }
+  .sub-entry .date {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0.1rem;
+  }
+  .sub-entry .title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+  }
+  .sub-entry .description {
+    font-size: 0.9rem;
   }
   .empty, .error {
     color: var(--muted);
@@ -136,6 +269,7 @@
     <h1>Timeline</h1>
     <p>A personal log of events.</p>
     <input id="search" type="search" placeholder="Search title or description…">
+    <div id="categoryFilters" class="category-filters"></div>
   </header>
   <div id="timeline"></div>
 </div>
