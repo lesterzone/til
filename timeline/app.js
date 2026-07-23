@@ -1,11 +1,14 @@
 const timelineEl = document.getElementById('timeline');
 const searchEl = document.getElementById('search');
 const categoryFiltersEl = document.getElementById('categoryFilters');
+const countryFiltersEl = document.getElementById('countryFilters');
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const DEFAULT_COUNTRY = 'Costa Rica';
 
 let allEvents = [];
 let activeCategories = null; // null = all categories active
+let activeCountries = null; // null = all countries active
 
 function categorySlug(category) {
   return String(category).toLowerCase().replace(/\s+/g, '-');
@@ -15,6 +18,7 @@ const CATEGORY_EMOJI = {
   hiking: '🥾',
   cycling: '🚴',
   vacation: '🏖️',
+  family: '👶',
 };
 
 function categoryEmoji(category) {
@@ -22,9 +26,9 @@ function categoryEmoji(category) {
   return CATEGORY_EMOJI[categorySlug(category)] || null;
 }
 
-function makeDot(category) {
+function makeDot(event) {
   const dotEl = document.createElement('span');
-  const emoji = categoryEmoji(category);
+  const emoji = event.emoji || categoryEmoji(event.category);
   dotEl.className = emoji ? 'entry-dot' : 'entry-dot plain';
   if (emoji) dotEl.textContent = emoji;
   return dotEl;
@@ -67,13 +71,18 @@ function renderCategoryFilters(events) {
     chip.dataset.category = categorySlug(category);
     chip.textContent = category;
     chip.addEventListener('click', () => {
-      const current = activeCategories || new Set(categories);
-      if (current.has(category)) {
-        current.delete(category);
+      if (activeCategories === null) {
+        // Coming from "All": isolate to just this category.
+        activeCategories = new Set([category]);
       } else {
-        current.add(category);
+        const current = new Set(activeCategories);
+        if (current.has(category)) {
+          current.delete(category);
+        } else {
+          current.add(category);
+        }
+        activeCategories = (current.size === 0 || current.size === categories.length) ? null : current;
       }
-      activeCategories = current.size === categories.length ? null : current;
       updateChipStates();
       applyFilter();
     });
@@ -97,9 +106,119 @@ function updateChipStates() {
 
 function matchesCategoryFilter(event) {
   if (activeCategories === null) return true;
+
+  const hasAnyCategory = Boolean(event.category) ||
+    (Array.isArray(event.subEvents) && event.subEvents.some(sub => sub.category));
+  if (!hasAnyCategory) return true; // uncategorized events aren't affected by category filtering
+
   if (event.category && activeCategories.has(event.category)) return true;
   if (Array.isArray(event.subEvents)) {
     return event.subEvents.some(sub => sub.category && activeCategories.has(sub.category));
+  }
+  return false;
+}
+
+function countrySlug(country) {
+  return String(country).toLowerCase().replace(/\s+/g, '-');
+}
+
+const COUNTRY_FLAG = {
+  'costa-rica': '🇨🇷',
+  nicaragua: '🇳🇮',
+  guatemala: '🇬🇹',
+  ecuador: '🇪🇨',
+  colombia: '🇨🇴',
+  panama: '🇵🇦',
+};
+
+function countryFlag(country) {
+  return COUNTRY_FLAG[countrySlug(country)] || '';
+}
+
+function eventCountry(event) {
+  return event.country || DEFAULT_COUNTRY;
+}
+
+function subEventCountry(subEvent, parentEvent) {
+  return subEvent.country || eventCountry(parentEvent);
+}
+
+function collectCountries(events) {
+  const countries = new Set();
+  for (const event of events) {
+    countries.add(eventCountry(event));
+    if (Array.isArray(event.subEvents)) {
+      for (const sub of event.subEvents) {
+        countries.add(subEventCountry(sub, event));
+      }
+    }
+  }
+  return [...countries].sort();
+}
+
+function renderCountryFilters(events) {
+  const countries = collectCountries(events);
+  countryFiltersEl.innerHTML = '';
+  if (countries.length === 0) return;
+
+  const allChip = document.createElement('button');
+  allChip.type = 'button';
+  allChip.className = 'category-chip country-chip';
+  allChip.dataset.country = 'all';
+  allChip.textContent = 'All';
+  allChip.addEventListener('click', () => {
+    activeCountries = null;
+    updateCountryChipStates();
+    applyFilter();
+  });
+  countryFiltersEl.appendChild(allChip);
+
+  for (const country of countries) {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'category-chip country-chip';
+    chip.dataset.country = countrySlug(country);
+    chip.textContent = `${countryFlag(country)} ${country}`;
+    chip.addEventListener('click', () => {
+      if (activeCountries === null) {
+        // Coming from "All": isolate to just this country.
+        activeCountries = new Set([country]);
+      } else {
+        const current = new Set(activeCountries);
+        if (current.has(country)) {
+          current.delete(country);
+        } else {
+          current.add(country);
+        }
+        activeCountries = (current.size === 0 || current.size === countries.length) ? null : current;
+      }
+      updateCountryChipStates();
+      applyFilter();
+    });
+    countryFiltersEl.appendChild(chip);
+  }
+
+  updateCountryChipStates();
+}
+
+function updateCountryChipStates() {
+  const chips = countryFiltersEl.querySelectorAll('.country-chip');
+  for (const chip of chips) {
+    if (chip.dataset.country === 'all') {
+      chip.classList.toggle('active', activeCountries === null);
+    } else {
+      const isActive = activeCountries === null ||
+        [...activeCountries].some(c => countrySlug(c) === chip.dataset.country);
+      chip.classList.toggle('active', isActive);
+    }
+  }
+}
+
+function matchesCountryFilter(event) {
+  if (activeCountries === null) return true;
+  if (activeCountries.has(eventCountry(event))) return true;
+  if (Array.isArray(event.subEvents)) {
+    return event.subEvents.some(sub => activeCountries.has(subEventCountry(sub, event)));
   }
   return false;
 }
@@ -157,11 +276,11 @@ function render(events) {
 
     const item = document.createElement('li');
     item.className = 'entry';
-    item.appendChild(makeDot(event.category));
+    item.appendChild(makeDot(event));
 
     const dateEl = document.createElement('div');
     dateEl.className = 'date';
-    dateEl.textContent = formatDate(event.date);
+    dateEl.textContent = `${countryFlag(eventCountry(event))} ${formatDate(event.date)}`;
 
     const titleEl = document.createElement('div');
     titleEl.className = 'title';
@@ -194,11 +313,11 @@ function render(events) {
       for (const subEvent of sortedSubEvents) {
         const subItem = document.createElement('li');
         subItem.className = 'sub-entry';
-        subItem.appendChild(makeDot(subEvent.category));
+        subItem.appendChild(makeDot(subEvent));
 
         const subDateEl = document.createElement('div');
         subDateEl.className = 'date';
-        subDateEl.textContent = formatDate(subEvent.date);
+        subDateEl.textContent = `${countryFlag(subEventCountry(subEvent, event))} ${formatDate(subEvent.date)}`;
 
         const subTitleEl = document.createElement('div');
         subTitleEl.className = 'title';
@@ -237,6 +356,7 @@ function applyFilter() {
 
   const filtered = allEvents.filter(e => {
     if (!matchesCategoryFilter(e)) return false;
+    if (!matchesCountryFilter(e)) return false;
     if (!query) return true;
     return (e.title || '').toLowerCase().includes(query) ||
       (e.description || '').toLowerCase().includes(query) ||
@@ -258,6 +378,7 @@ fetch('events.json')
   .then(events => {
     allEvents = Array.isArray(events) ? events : [];
     renderCategoryFilters(allEvents);
+    renderCountryFilters(allEvents);
     render(allEvents);
   })
   .catch(err => {

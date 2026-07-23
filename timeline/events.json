@@ -2,27 +2,34 @@
   {
     "date": "1988-01-19",
     "title": "Born",
-    "description": ""
+    "description": "",
+    "category": "Family"
   },
   {
     "date": "2011-07-16",
     "title": "Started living together with Andrea Fuentes",
-    "description": ""
+    "description": "",
+    "category": "Family",
+    "emoji": "🏠"
   },
   {
     "date": "2012-02-02",
     "title": "Marcela born",
-    "description": "Daughter Marcela born."
+    "description": "Daughter Marcela born.",
+    "category": "Family"
   },
   {
     "date": "2018-10-11",
     "title": "Married Andrea Fuentes",
-    "description": ""
+    "description": "",
+    "category": "Family",
+    "emoji": "💍"
   },
   {
     "date": "2020-07-09",
     "title": "Mia born",
-    "description": "Daughter Mia born."
+    "description": "Daughter Mia born.",
+    "category": "Family"
   },
   {
     "date": "2026-04-20",
@@ -34,6 +41,7 @@
     "title": "Trip to Nicaragua",
     "description": "Stayed Jan 17–21, 2024.",
     "category": "Vacation",
+    "country": "Nicaragua",
     "subEvents": [
       {
         "date": "2024-01-17",
@@ -56,13 +64,15 @@
     "date": "2024-04-12",
     "title": "Trip to Guatemala City, Guatemala",
     "description": "Stayed Apr 12–15, 2024.",
-    "category": "Vacation"
+    "category": "Vacation",
+    "country": "Guatemala"
   },
   {
     "date": "2024-04-29",
     "title": "Trip to Managua, Nicaragua",
     "description": "Stayed Apr 29–30, 2024.",
-    "category": "Vacation"
+    "category": "Vacation",
+    "country": "Nicaragua"
   },
   {
     "date": "2024-06-08",
@@ -110,7 +120,8 @@
     "date": "2024-09-16",
     "title": "Trip to Guatemala City, Guatemala",
     "description": "Stayed Sep 16–21, 2024.",
-    "category": "Vacation"
+    "category": "Vacation",
+    "country": "Guatemala"
   },
   {
     "date": "2024-10-08",
@@ -129,6 +140,7 @@
     "title": "Trip to Quito, Ecuador",
     "description": "Stayed Jan 8–19, 2025.",
     "category": "Vacation",
+    "country": "Ecuador",
     "subEvents": [
       {
         "date": "2025-01-16",
@@ -155,6 +167,7 @@
     "title": "Trip to Antigua Guatemala and Guatemala City, Guatemala",
     "description": "Stayed Antigua Guatemala Feb 14–15, Guatemala City Feb 16–17, 2025.",
     "category": "Vacation",
+    "country": "Guatemala",
     "subEvents": [
       {
         "date": "2025-02-15",
@@ -168,7 +181,8 @@
     "date": "2025-03-02",
     "title": "Trip to Managua, Nicaragua",
     "description": "Stayed Mar 2–3, 2025.",
-    "category": "Vacation"
+    "category": "Vacation",
+    "country": "Nicaragua"
   },
   {
     "date": "2025-05-24",
@@ -222,7 +236,8 @@
     "date": "2025-07-26",
     "title": "Panamá - Barú",
     "description": "21.38 km · 12:05:24 · +1,851 m ascent",
-    "category": "Hiking"
+    "category": "Hiking",
+    "country": "Panama"
   },
   {
     "date": "2025-09-14",
@@ -258,13 +273,15 @@
     "date": "2025-12-19",
     "title": "Trip to Matagalpa and Granada, Nicaragua",
     "description": "Stayed Matagalpa Dec 19–20, Granada Dec 20–21, 2025.",
-    "category": "Vacation"
+    "category": "Vacation",
+    "country": "Nicaragua"
   },
   {
     "date": "2026-01-09",
     "title": "Trip to Medellín, Colombia",
     "description": "Stayed Jan 9–23, 2026.",
     "category": "Vacation",
+    "country": "Colombia",
     "subEvents": [
       {
         "date": "2026-01-19",
@@ -279,6 +296,7 @@
     "title": "Trip to Bogotá, Colombia",
     "description": "Stayed Feb 13–16, 2026.",
     "category": "Vacation",
+    "country": "Colombia",
     "subEvents": [
       {
         "date": "2026-02-14",

@@ -20,6 +20,8 @@
     --cat-cycling-bg: rgba(181, 103, 62, 0.14);
     --cat-vacation: #3f6a8a;
     --cat-vacation-bg: rgba(63, 106, 138, 0.14);
+    --cat-family: #a24d72;
+    --cat-family-bg: rgba(162, 77, 114, 0.14);
     --cat-other: var(--muted);
     --cat-other-bg: rgba(107, 107, 102, 0.14);
   }
@@ -38,6 +40,8 @@
       --cat-cycling-bg: rgba(224, 153, 107, 0.18);
       --cat-vacation: #8ec2e8;
       --cat-vacation-bg: rgba(142, 194, 232, 0.18);
+      --cat-family: #db8fb2;
+      --cat-family-bg: rgba(219, 143, 178, 0.18);
       --cat-other-bg: rgba(154, 151, 144, 0.18);
     }
   }
@@ -115,7 +119,16 @@
     color: var(--cat-vacation);
     background: var(--cat-vacation-bg);
   }
+  .category-chip[data-category="family"].active {
+    color: var(--cat-family);
+    background: var(--cat-family-bg);
+  }
   .category-chip[data-category="all"].active {
+    color: var(--fg);
+    background: var(--card-bg);
+    border-color: var(--fg);
+  }
+  .country-chip.active {
     color: var(--fg);
     background: var(--card-bg);
     border-color: var(--fg);
@@ -144,6 +157,10 @@
   .category-badge[data-category="vacation"] {
     color: var(--cat-vacation);
     background: var(--cat-vacation-bg);
+  }
+  .category-badge[data-category="family"] {
+    color: var(--cat-family);
+    background: var(--cat-family-bg);
   }
   .sub-entry .category-badge {
     font-size: 0.62rem;
@@ -201,11 +218,14 @@
   .entry .title {
     font-size: 1.05rem;
     font-weight: 600;
-    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    margin-bottom: 0.3rem;
   }
   .entry .description {
-    color: var(--fg);
-    font-size: 0.95rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
     white-space: pre-wrap;
   }
   ol.sub-timeline {
@@ -242,10 +262,14 @@
   .sub-entry .title {
     font-size: 0.95rem;
     font-weight: 500;
-    margin-bottom: 0.15rem;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    margin-bottom: 0.2rem;
   }
   .sub-entry .description {
-    font-size: 0.9rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.5;
   }
   .empty, .error {
     color: var(--muted);
@@ -270,6 +294,7 @@
     <p>A personal log of events.</p>
     <input id="search" type="search" placeholder="Search title or description…">
     <div id="categoryFilters" class="category-filters"></div>
+    <div id="countryFilters" class="category-filters"></div>
   </header>
   <div id="timeline"></div>
 </div>
