@@ -388,5 +388,11 @@
     "title": "Graduated 9th year, Secondary School (Colegio)",
     "description": "Colegio Técnico Profesional La Fortuna.",
     "category": "Studies"
+  },
+  {
+    "date": "2000",
+    "title": "Graduated 6th grade, Primary School (Escuela)",
+    "description": "Escuela El Jauuri.",
+    "category": "Studies"
   }
 ]
