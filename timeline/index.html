@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timeline</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f7f6f3;
+    --fg: #2a2a28;
+    --muted: #6b6b66;
+    --line: #d8d5cd;
+    --dot: #b5895a;
+    --card-bg: #ffffff;
+    --card-border: #e6e3da;
+    --cat-hiking: #4f7d5c;
+    --cat-hiking-bg: rgba(79, 125, 92, 0.14);
+    --cat-cycling: #b5673e;
+    --cat-cycling-bg: rgba(181, 103, 62, 0.14);
+    --cat-vacation: #3f6a8a;
+    --cat-vacation-bg: rgba(63, 106, 138, 0.14);
+    --cat-family: #a24d72;
+    --cat-family-bg: rgba(162, 77, 114, 0.14);
+    --cat-other: var(--muted);
+    --cat-other-bg: rgba(107, 107, 102, 0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1b1a17;
+      --fg: #ece9e2;
+      --muted: #9a9790;
+      --line: #3a382f;
+      --dot: #d3a06f;
+      --card-bg: #242220;
+      --card-border: #35332c;
+      --cat-hiking: #8fbf9c;
+      --cat-hiking-bg: rgba(143, 191, 156, 0.18);
+      --cat-cycling: #e0996b;
+      --cat-cycling-bg: rgba(224, 153, 107, 0.18);
+      --cat-vacation: #8ec2e8;
+      --cat-vacation-bg: rgba(142, 194, 232, 0.18);
+      --cat-family: #db8fb2;
+      --cat-family-bg: rgba(219, 143, 178, 0.18);
+      --cat-other-bg: rgba(154, 151, 144, 0.18);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+  }
+  header {
+    margin-bottom: 2.5rem;
+  }
+  header h1 {
+    margin: 0 0 0.25rem;
+    font-size: 1.75rem;
+    letter-spacing: -0.02em;
+  }
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  #search {
+    margin-top: 1.25rem;
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    color: var(--fg);
+    font-size: 0.95rem;
+  }
+  #search:focus {
+    outline: 2px solid var(--dot);
+    outline-offset: 1px;
+  }
+  .category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .category-chip {
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    color: var(--muted);
+    opacity: 0.55;
+  }
+  .category-chip.active {
+    opacity: 1;
+    border-color: currentColor;
+  }
+  .category-chip[data-category="hiking"].active {
+    color: var(--cat-hiking);
+    background: var(--cat-hiking-bg);
+  }
+  .category-chip[data-category="cycling"].active {
+    color: var(--cat-cycling);
+    background: var(--cat-cycling-bg);
+  }
+  .category-chip[data-category="vacation"].active {
+    color: var(--cat-vacation);
+    background: var(--cat-vacation-bg);
+  }
+  .category-chip[data-category="family"].active {
+    color: var(--cat-family);
+    background: var(--cat-family-bg);
+  }
+  .category-chip[data-category="all"].active {
+    color: var(--fg);
+    background: var(--card-bg);
+    border-color: var(--fg);
+  }
+  .country-chip.active {
+    color: var(--fg);
+    background: var(--card-bg);
+    border-color: var(--fg);
+  }
+  .category-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.08rem 0.5rem;
+    border-radius: 999px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    color: var(--cat-other);
+    background: var(--cat-other-bg);
+  }
+  .category-badge[data-category="hiking"] {
+    color: var(--cat-hiking);
+    background: var(--cat-hiking-bg);
+  }
+  .category-badge[data-category="cycling"] {
+    color: var(--cat-cycling);
+    background: var(--cat-cycling-bg);
+  }
+  .category-badge[data-category="vacation"] {
+    color: var(--cat-vacation);
+    background: var(--cat-vacation-bg);
+  }
+  .category-badge[data-category="family"] {
+    color: var(--cat-family);
+    background: var(--cat-family-bg);
+  }
+  .sub-entry .category-badge {
+    font-size: 0.62rem;
+    padding: 0.05rem 0.4rem;
+  }
+  .year-heading {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 2.5rem 0 1rem;
+  }
+  .year-heading:first-of-type {
+    margin-top: 0;
+  }
+  ol.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 2px solid var(--line);
+  }
+  .entry {
+    position: relative;
+    padding: 0 0 1.5rem 1.75rem;
+    margin-left: -2px;
+  }
+  .entry-dot {
+    position: absolute;
+    left: -0.95rem;
+    top: -0.05rem;
+    width: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    text-align: center;
+    background: var(--bg);
+  }
+  .entry-dot.plain {
+    font-size: 0;
+  }
+  .entry-dot.plain::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--dot);
+    border: 2px solid var(--bg);
+  }
+  .entry .date {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0.15rem;
+  }
+  .entry .title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    margin-bottom: 0.3rem;
+  }
+  .entry .description {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+  }
+  ol.sub-timeline {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    border-left: 2px solid var(--line);
+  }
+  .sub-entry {
+    position: relative;
+    padding: 0 0 0.9rem 1.4rem;
+    margin-left: -1px;
+  }
+  .sub-entry:last-child {
+    padding-bottom: 0;
+  }
+  .sub-entry .entry-dot {
+    left: -0.8rem;
+    top: -0.05rem;
+    width: 1.2rem;
+    font-size: 0.85rem;
+  }
+  .sub-entry .entry-dot.plain::before {
+    width: 8px;
+    height: 8px;
+    background: var(--muted);
+  }
+  .sub-entry .date {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0.1rem;
+  }
+  .sub-entry .title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    margin-bottom: 0.2rem;
+  }
+  .sub-entry .description {
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+  .empty, .error {
+    color: var(--muted);
+    font-size: 0.95rem;
+    padding: 1rem 0;
+  }
+  .error {
+    color: #b5484b;
+  }
+  .error code {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Timeline</h1>
+    <p>A personal log of events.</p>
+    <input id="search" type="search" placeholder="Search title or description…">
+    <div id="categoryFilters" class="category-filters"></div>
+    <div id="countryFilters" class="category-filters"></div>
+  </header>
+  <div id="timeline"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

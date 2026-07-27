@@ -1,0 +1,410 @@
+[
+  {
+    "date": "1988-01-19",
+    "title": "Born",
+    "description": "",
+    "category": "Family"
+  },
+  {
+    "date": "2011-07-16",
+    "title": "Started living together with Andrea Fuentes",
+    "description": "",
+    "category": "Family",
+    "emoji": "🏠"
+  },
+  {
+    "date": "2012-02-02",
+    "title": "Marcela born",
+    "description": "Daughter Marcela born.",
+    "category": "Family"
+  },
+  {
+    "date": "2018-10-11",
+    "title": "Married Andrea Fuentes",
+    "description": "",
+    "category": "Family",
+    "emoji": "💍"
+  },
+  {
+    "date": "2020-07-09",
+    "title": "Mia born",
+    "description": "Daughter Mia born.",
+    "category": "Family"
+  },
+  {
+    "date": "2026-04-20",
+    "title": "Bought RAV4",
+    "description": "License plate GYR123."
+  },
+  {
+    "date": "2017-11-28",
+    "title": "First ever car: Hyundai Elantra",
+    "description": "",
+    "category": "Assets"
+  },
+  {
+    "date": "2024-01-17",
+    "title": "Trip to Nicaragua",
+    "description": "Stayed Jan 17–21, 2024.",
+    "category": "Vacation",
+    "country": "Nicaragua",
+    "subEvents": [
+      {
+        "date": "2024-01-17",
+        "title": "Granada",
+        "description": "Stayed Jan 17–18, 2024."
+      },
+      {
+        "date": "2024-01-19",
+        "title": "León",
+        "description": "Stayed Jan 19–20, 2024."
+      },
+      {
+        "date": "2024-01-20",
+        "title": "Granada",
+        "description": "Stayed Jan 20–21, 2024."
+      }
+    ]
+  },
+  {
+    "date": "2024-04-12",
+    "title": "Trip to Guatemala City, Guatemala",
+    "description": "Stayed Apr 12–15, 2024.",
+    "category": "Vacation",
+    "country": "Guatemala"
+  },
+  {
+    "date": "2024-04-29",
+    "title": "Trip to Managua, Nicaragua",
+    "description": "Stayed Apr 29–30, 2024.",
+    "category": "Vacation",
+    "country": "Nicaragua"
+  },
+  {
+    "date": "2024-06-08",
+    "title": "Represa Arenal -> Tronadora Tilaran",
+    "description": "52.26 km · 3:33:48 · +942 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2024-06-15",
+    "title": "Tilaran -> Represa Arenal",
+    "description": "57.64 km · 4:03:42 · +1,056 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2024-06-15",
+    "title": "Represa Arenal -> Fortuna",
+    "description": "19.39 km · 0:54:49 · +234 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2024-07-25",
+    "title": "Ciudad Quesada -> San Vicente",
+    "description": "22.75 km · 2:08:56 · +874 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2024-07-28",
+    "title": "Ciudad Quesada -> San Vicente Highway",
+    "description": "28.73 km · 2:39:49 · +1,107 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2024-08-03",
+    "title": "Ciudad Quesada -> Sucre",
+    "description": "24.10 km · 2:26:34 · +909 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2024-08-25",
+    "title": "Ciudad Quesada -> Penjamo",
+    "description": "18.87 km · 2:11:59 · +655 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2024-09-16",
+    "title": "Trip to Guatemala City, Guatemala",
+    "description": "Stayed Sep 16–21, 2024.",
+    "category": "Vacation",
+    "country": "Guatemala"
+  },
+  {
+    "date": "2024-10-08",
+    "title": "CQ -> San Vicente",
+    "description": "21.63 km · 1:56:25 · +801 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2024-11-17",
+    "title": "La Palmera -> La Fortuna",
+    "description": "38.43 km · 1:40:01 · +322 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2025-01-08",
+    "title": "Trip to Quito, Ecuador",
+    "description": "Stayed Jan 8–19, 2025.",
+    "category": "Vacation",
+    "country": "Ecuador",
+    "subEvents": [
+      {
+        "date": "2025-01-16",
+        "title": "Rucu Pichincha",
+        "description": "",
+        "category": "Hiking"
+      },
+      {
+        "date": "2025-01-18",
+        "title": "Cotopaxi",
+        "description": "",
+        "category": "Hiking"
+      }
+    ]
+  },
+  {
+    "date": "2025-01-28",
+    "title": "Ciudad Quesada -> San Vicente -> Ciudad Quesada",
+    "description": "27.79 km · 2:10:26 · +1,065 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2025-02-14",
+    "title": "Trip to Antigua Guatemala and Guatemala City, Guatemala",
+    "description": "Stayed Antigua Guatemala Feb 14–15, Guatemala City Feb 16–17, 2025.",
+    "category": "Vacation",
+    "country": "Guatemala",
+    "subEvents": [
+      {
+        "date": "2025-02-15",
+        "title": "Acatenango Hike",
+        "description": "Feb 15–16, 2025. Ascend: 8.02 km · 5:45:18 · +1,211 m. Summit & descend: 11.36 km · 6:35:05 · +275 m.",
+        "category": "Hiking"
+      }
+    ]
+  },
+  {
+    "date": "2025-03-02",
+    "title": "Trip to Managua, Nicaragua",
+    "description": "Stayed Mar 2–3, 2025.",
+    "category": "Vacation",
+    "country": "Nicaragua"
+  },
+  {
+    "date": "2025-05-24",
+    "title": "Camino CR - Etapa 1",
+    "description": "24.29 km · 5:54:59 · +109 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2025-05-24",
+    "title": "Camino CR - Etapa 1 Barra",
+    "description": "1.47 km · 0:41:52 · +2 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2025-06-01",
+    "title": "Ciudad Quesada -> Chachagua -> La Fortuna",
+    "description": "40.50 km · 1:36:27 · +594 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2025-06-07",
+    "title": "Vuelta al Lago",
+    "description": "47.25 km · 4:10:04 · +997 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2025-06-28",
+    "title": "Camino CR - Etapa 2",
+    "description": "15.43 km · 5:39:12 · +836 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2025-07-05",
+    "title": "Cerro Frío",
+    "description": "18.56 km · 10:00:55 · +1,344 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2025-07-13",
+    "title": "La Palmera -> Fortuna",
+    "description": "44.88 km · 1:36:50 · +336 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2025-07-20",
+    "title": "La Palmera -> CQ",
+    "description": "18.25 km · 1:15:36 · +633 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2025-07-26",
+    "title": "Panamá - Barú",
+    "description": "21.38 km · 12:05:24 · +1,851 m ascent",
+    "category": "Hiking",
+    "country": "Panama"
+  },
+  {
+    "date": "2025-09-14",
+    "title": "Sabanas Oka",
+    "description": "22.86 km · 8:01:38 · +1,257 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2025-09-28",
+    "title": "Camino CR - Etapa 9",
+    "description": "18.67 km · 5:07:52 · +575 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2025-10-18",
+    "title": "Camino CR - Etapa 3",
+    "description": "17.61 km · 6:38:41 · +715 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2025-10-19",
+    "title": "Camino CR - Etapa 4",
+    "description": "7.16 km · 3:05:02 · +450 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2025-11-15",
+    "title": "Cerro Ena",
+    "description": "25.32 km · 10:48:10 · +1,745 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2025-12-19",
+    "title": "Trip to Matagalpa and Granada, Nicaragua",
+    "description": "Stayed Matagalpa Dec 19–20, Granada Dec 20–21, 2025.",
+    "category": "Vacation",
+    "country": "Nicaragua"
+  },
+  {
+    "date": "2026-01-09",
+    "title": "Trip to Medellín, Colombia",
+    "description": "Stayed Jan 9–23, 2026.",
+    "category": "Vacation",
+    "country": "Colombia",
+    "subEvents": [
+      {
+        "date": "2026-01-19",
+        "title": "Guatapé Tour: Piedra del Peñol with Boat Tour, Breakfast, Lunch",
+        "description": "Meeting point: Poblado Spanish, 6:50 AM · 4 Adults · $148.00 USD",
+        "category": "Vacation"
+      }
+    ]
+  },
+  {
+    "date": "2026-02-13",
+    "title": "Trip to Bogotá, Colombia",
+    "description": "Stayed Feb 13–16, 2026.",
+    "category": "Vacation",
+    "country": "Colombia",
+    "subEvents": [
+      {
+        "date": "2026-02-14",
+        "title": "Quebrada la Vieja",
+        "description": "7.10 km · 2:16:20 · +337 m ascent",
+        "category": "Hiking"
+      },
+      {
+        "date": "2026-02-14",
+        "title": "Monserrate",
+        "description": "3.25 km · 1:25:57 · +477 m ascent",
+        "category": "Hiking"
+      },
+      {
+        "date": "2026-02-15",
+        "title": "Hiking to the largest páramo on earth: Sumapaz",
+        "description": "7:30 AM · 1 Adult · $130.00 USD · 12.21 km · 3:20:03 · +444 m ascent",
+        "category": "Hiking"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-07",
+    "title": "Camino CR - Etapa 10",
+    "description": "13.52 km · 4:36:43 · +775 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2026-03-14",
+    "title": "CQ -> Zarcero -> CQ",
+    "description": "57.54 km · 4:44:24 · +1,735 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2026-03-21",
+    "title": "Aguas Zarcas -> San Miguel -> Aguas Zarcas",
+    "description": "50.04 km · 3:22:10 · +992 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2026-05-02",
+    "title": "La Palmera to La Fortuna + vuelta Javillos",
+    "description": "92.13 km · 6:23:43 · +818 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2026-05-03",
+    "title": "La Palmera -> CQ",
+    "description": "18.32 km · 1:16:56 · +628 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2026-05-10",
+    "title": "CQ -> Hideway -> CQ",
+    "description": "28.37 km · 2:44:11 · +1,066 m ascent",
+    "category": "Cycling"
+  },
+  {
+    "date": "2026-06-11",
+    "title": "Bought La Abundancia Modules",
+    "description": "Paid half."
+  },
+  {
+    "date": "2026-06-13",
+    "title": "Ciudad Quesada > San Vicente",
+    "description": "11.29 km · 3:26:53 · +811 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2026-06-27",
+    "title": "Camino CR - Etapa 5",
+    "description": "15.43 km · 3:37:51 · +803 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2026-06-28",
+    "title": "Camino CR - Etapa 6",
+    "description": "14.37 km · 4:43:27 · +338 m ascent",
+    "category": "Hiking"
+  },
+  {
+    "date": "2026-08-16",
+    "title": "Sold Yaris",
+    "description": "License plate BVK495.",
+    "category": "Assets"
+  },
+  {
+    "date": "2023-12",
+    "title": "Graduated 9th year, Secondary School (Colegio)",
+    "description": "Colegio Técnico Profesional La Fortuna.",
+    "category": "Studies"
+  },
+  {
+    "date": "2000",
+    "title": "Graduated 6th grade, Primary School (Escuela)",
+    "description": "Escuela El Jauuri.",
+    "category": "Studies"
+  },
+  {
+    "date": "2000-02-15",
+    "title": "Official Resident of Costa Rica",
+    "description": "",
+    "category": "Legal"
+  }
+]
